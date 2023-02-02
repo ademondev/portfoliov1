@@ -9,7 +9,6 @@ const useStyles = createStyles((theme) => ({
     root: {
         position: 'relative',
         zIndex: 1,
-        marginBottom: '0 !important'
     },
     dropdown: {
         position: 'absolute',
@@ -99,7 +98,7 @@ const MainHeader: FC<HeaderResponsiveProps> = ({ links }: HeaderResponsiveProps)
     ));
     
     return (
-        <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
+        <Header height={HEADER_HEIGHT} mb={50} className={classes.root}>
             <Container className={classes.header}>
                 <MantineLogo size={28} />
                 <Group spacing={5} className={classes.links}>
