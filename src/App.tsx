@@ -1,6 +1,11 @@
+import { ScrollArea } from "@mantine/core";
 import { FC } from "react";
+import MainAbout from "./components/MainAbout";
+import MainContact from "./components/MainContact";
+import MainFooter from "./components/MainFooter";
 import MainHeader from "./components/MainHeader";
 import MainHero from "./components/MainHero";
+import MainProjects from "./components/MainProjects";
 
 const headerLinks = [
     {
@@ -19,10 +24,14 @@ const headerLinks = [
 
 const App: FC = () => {
     return (<>
-        <MainHeader 
+        <MainHeader
             links={headerLinks}
         />
         <MainHero />
+        <MainAbout />
+        <MainProjects />
+        <MainContact />
+        <MainFooter />
     </>);
 }
 
