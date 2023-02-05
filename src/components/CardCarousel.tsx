@@ -1,7 +1,7 @@
 import { Carousel } from '@mantine/carousel';
 import { useMediaQuery } from '@mantine/hooks';
-import { createStyles, Paper, Text, Title, Button, useMantineTheme } from '@mantine/core';
-import { FC } from 'react';
+import { createStyles, Paper, Text, Title, Button, useMantineTheme, Badge } from '@mantine/core';
+import { FC, ReactNode } from 'react';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -34,10 +34,10 @@ const useStyles = createStyles((theme) => ({
 interface CardProps {
   image: string;
   title: string;
-  category: string;
+  techNames: string[];
 }
 
-const Card: FC<CardProps> = ({ image, title, category }: CardProps) => {
+const Card: FC<CardProps> = ({ image, title, techNames }: CardProps) => {
   const { classes } = useStyles();
 
   return (
@@ -50,7 +50,9 @@ const Card: FC<CardProps> = ({ image, title, category }: CardProps) => {
     >
       <div>
         <Text className={classes.category} size="xs">
-          {category}
+          {techNames.map((name) => 
+            <Badge>{name}</Badge>
+          )}
         </Text>
         <Title order={3} className={classes.title}>
           {title}
@@ -66,41 +68,30 @@ const Card: FC<CardProps> = ({ image, title, category }: CardProps) => {
 const data = [
   {
     image:
-      'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    title: 'Best forests to visit in North America',
-    category: 'nature',
+      './src/assets/app1.png',
+    title: 'ERP: A desktop app to set your Discord Rich Presence',
+    techNames: ['Electron', 'JavaScript', 'NodeJS', 'CSS', 'HTML'],
   },
   {
     image:
-      'https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    title: 'Hawaii beaches review: better than you think',
-    category: 'beach',
+      './src/assets/app2crop.jpg',
+    title: 'TODO Simple v2: A simple, modern task app',
+    techNames: ['React', 'TypeScript', 'Vite', 'Mantine'],
   },
   {
     image:
-      'https://images.unsplash.com/photo-1608481337062-4093bf3ed404?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    title: 'Mountains at night: 12 best locations to enjoy the view',
-    category: 'nature',
+      './src/assets/app4.jpg',
+    title: 'Nare: A Discord bot for roleplayers',
+    techNames: ['DiscordJS', 'TypeScript', 'NodeJS'],
   },
   {
     image:
-      'https://images.unsplash.com/photo-1507272931001-fc06c17e4f43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    title: 'Aurora in Norway: when to visit for best experience',
-    category: 'nature',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    title: 'Best places to visit this winter',
-    category: 'tourism',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1582721478779-0ae163c05a60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    title: 'Active volcanos reviews: travel at your own risk',
-    category: 'nature',
+      './src/assets/app3crop.jpg',
+    title: 'TODO Simple v2: A simple, minimal task app',
+    techNames: ['React', 'TypeScript', 'Vite', 'CSS'],
   },
 ];
+
 
 const CardCarousel:FC = () => {
   const theme = useMantineTheme();
