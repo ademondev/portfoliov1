@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="35.880299mm"
+   height="37.228405mm"
+   viewBox="0 0 35.880299 37.228405"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="mainLogo.svg"
+   inkscape:export-filename="E:\1dsktp\inkscapeSVGs\test1.png"
+   inkscape:export-xdpi="102.369"
+   inkscape:export-ydpi="102.369"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2"
+     inkscape:cx="159.25"
+     inkscape:cy="62.25"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     width="50mm" />
+  <defs
+     id="defs2">
+    <rect
+       x="306"
+       y="296"
+       width="205"
+       height="65"
+       id="rect9673" />
+    <rect
+       x="295"
+       y="210"
+       width="270"
+       height="140"
+       id="rect2809" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-45.657827,-16.251378)">
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text2807"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'Swis721 Blk BT';-inkscape-font-specification:'Swis721 Blk BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect2809)" />
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text9671"
+       style="font-size:40px;line-height:1.25;font-family:Cairo;-inkscape-font-specification:Cairo;white-space:pre;shape-inside:url(#rect9673)" />
+    <g
+       id="g77997"
+       transform="matrix(0.81774779,0,0,0.81774779,-14.499492,-1.8608703)"
+       inkscape:export-filename="E:\1dsktp\inkscapeSVGs\test1.png"
+       inkscape:export-xdpi="102.369"
+       inkscape:export-ydpi="102.369">
+      <g
+         id="g1727"
+         transform="matrix(1.2543692,0,0,1.2543692,7.0398636,-50.351402)">
+        <g
+           id="g1153"
+           transform="translate(-0.98467924,0.10595903)"
+           inkscape:export-filename="E:\1dsktp\inkscapeSVGs\test1.png"
+           inkscape:export-xdpi="102.369"
+           inkscape:export-ydpi="102.369">
+          <g
+             id="g1791">
+            <path
+               style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+               d="m 71.407687,57.69229 14.321971,32.047526 -8.761675,-5.964682 -5.492898,-12.434845 -5.358107,12.30005 -9.166063,6.133174 z"
+               id="path869" />
+            <path
+               style="fill:#3b5c99;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+               d="M 54.019123,93.98586 71.340287,88.964743 88.998438,93.95216 71.340287,82.19129 Z"
+               id="path871" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
