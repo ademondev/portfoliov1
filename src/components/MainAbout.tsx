@@ -112,7 +112,7 @@ const MainAbout: FC = () => {
                             }
                         >
                             <List.Item className={classes.description}>ExpressJS</List.Item>
-                            <List.Item className={classes.description}>Sequelize</List.Item>
+                            <List.Item className={classes.description}>Electron</List.Item>
                             <List.Item className={classes.description}>SQLite</List.Item>
                         </List>
                     </Flex>
