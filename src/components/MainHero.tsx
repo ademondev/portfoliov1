@@ -1,4 +1,4 @@
-import { createStyles, Container, Title, Text, Button } from '@mantine/core';
+import { createStyles, Container, Title, Text, Button, Space } from '@mantine/core';
 import { FC } from 'react';
 
 const useStyles = createStyles((theme) => ({
@@ -37,12 +37,27 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
-  title: {
+  topTitle: {
     color: theme.white,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 900,
     lineHeight: 1.05,
     maxWidth: 500,
+    fontSize: 30,
+
+    [theme.fn.smallerThan('md')]: {
+      maxWidth: '100%',
+      fontSize: 20,
+      lineHeight: 1.15,
+    },
+  },
+
+  title: {
+    color: theme.white,
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontWeight: 900,
+    lineHeight: 1.05,
+    maxWidth: 800,
     fontSize: 48,
 
     [theme.fn.smallerThan('md')]: {
@@ -81,22 +96,32 @@ const MainHero: FC = () => {
         <Container size="lg">
           <div className={classes.inner}>
             <div className={classes.content}>
+              <Title
+                  className={classes.topTitle}
+                >
+                Hi, my name is
+              </Title>
+              <Space h='sm'/>
               <Title className={classes.title}>
-                A{' '}
                 <Text
                   component="span"
                   inherit
                   variant="gradient"
                   gradient={{ from: 'pink', to: 'yellow' }}
                 >
-                  fully featured
-                </Text>{' '}
-                React components library
+                  Alejandro Pedemonte.
+                </Text>
+                <Text>
+                  I make cool things for the web.
+                </Text>
               </Title>
     
               <Text className={classes.description} mt={30}>
-                Build fully functional accessible web applications with ease – Mantine includes more
-                than 100 customizable components and hooks to cover you in any situation
+                I'm a <Text component='a' fw={700}>full-stack web developer</Text> and an industrial
+                engineering student with a passion for building modern, 
+                interactive web applications using technologies like NodeJS, React, 
+                ExpressJS, and Typescript. I've been coding for 3 years and am always 
+                looking for new challenges.
               </Text>
     
               <Button
@@ -106,7 +131,7 @@ const MainHero: FC = () => {
                 className={classes.control}
                 mt={40}
               >
-                Get started
+                Contact me!
               </Button>
             </div>
           </div>
