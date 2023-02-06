@@ -62,7 +62,7 @@ const MainAbout: FC = () => {
 
     return (<>
         <Space h='xl' />
-        <Container className={classes.aboutContainer} id="about">
+        <Container data-aos="fade-right" className={classes.aboutContainer} id="about">
             <Container className={classes.headers}>
                 <Center>
                     <Title className={classes.aboutHeader}>

@@ -93,7 +93,7 @@ const MainHero: FC = () => {
     const { classes } = useStyles();
     return (
       <div className={classes.root}>
-        <Container size="lg">
+        <Container data-aos="fade-in" size="lg">
           <div className={classes.inner}>
             <div className={classes.content}>
               <Title

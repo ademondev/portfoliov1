@@ -113,7 +113,7 @@ const MainContact: FC = () => {
   });
 
   return (
-    <Container className={classes.outerFormContainer}>
+    <Container data-aos="fade-up" className={classes.outerFormContainer}>
       <Container className={classes.headers}>
         <Center>
           <Title

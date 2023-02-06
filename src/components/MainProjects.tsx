@@ -64,7 +64,7 @@ const MainProjects: FC = () => {
 
     return (
         <div className={classes.root}>
-            <Container>
+            <Container data-aos="fade-left">
                 <Container className={classes.headers}>
                     <Center>
                         <Title className={classes.aboutHeader}>
