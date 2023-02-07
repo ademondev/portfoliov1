@@ -1,6 +1,11 @@
 import { TextInput, Textarea, SimpleGrid, Title, Button, Container, createStyles, Center, Divider, Space } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { FC } from 'react';
+import { useRefContext } from './RefProvider';
+import { showNotification } from '@mantine/notifications';
+import { AiFillCheckCircle } from 'react-icons/ai';
+
+const FORM_ENDPOINT = `${import.meta.env.VITE_SERVICE_URL}`;
 
 const useStyles = createStyles((theme) => ({
   outerFormContainer: {
@@ -96,8 +101,39 @@ const useStyles = createStyles((theme) => ({
   }
 }));
 
+interface FormProps {
+  name: string
+  email: string
+  subject: string
+  message: string
+}
+
+// true - success | false - failed
+const sendForm = (endpoint: string, formData: FormProps): Promise<boolean> => {
+  const data = new FormData();
+  for (let property in formData) {
+    data.append(property, formData[property as keyof FormProps])
+  }
+  if (data === undefined) return Promise.resolve(false);
+  return fetch(endpoint, {
+    method: 'POST',
+    body: data,
+    mode: 'no-cors'
+  })
+  .then(response => {
+    if (response.ok) {
+      return true;
+    }
+    return false;
+  })
+  .catch(() => {
+    return false;
+  });
+}
+
 const MainContact: FC = () => {
   const { classes } = useStyles();
+  const ref = useRefContext();
   const form = useForm({
     initialValues: {
       name: '',
@@ -106,14 +142,30 @@ const MainContact: FC = () => {
       message: '',
     },
     validate: {
-      name: (value) => value.trim().length < 2,
+      name: (value) => value.trim().length < 3,
       email: (value) => !/^\S+@\S+$/.test(value),
       subject: (value) => value.trim().length === 0,
+      message: (value) => value.trim().length < 11
     },
   });
 
+  async function handleSubmit(form: FormProps) {
+    try {
+      const res = await sendForm(FORM_ENDPOINT, form);
+        showNotification({
+          autoClose: 5000,
+          title: "Success!",
+          message: 'The email was sent successfully',
+          color: 'green',
+          icon: <AiFillCheckCircle />,
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
-    <Container data-aos="fade-up" className={classes.outerFormContainer}>
+    <Container data-aos="fade-up" className={classes.outerFormContainer} ref={ref?.contact.targetRef}>
       <Container className={classes.headers}>
         <Center>
           <Title
@@ -132,24 +184,25 @@ const MainContact: FC = () => {
       <Space h='lg' />
       <Space h='sm' />
       <Container className={classes.formContainer}>
-        <form className={classes.form} onSubmit={(event) => event.preventDefault()}>
+        <form className={classes.form} onSubmit={form.onSubmit((values) => handleSubmit(values))}>
           <div className={classes.fields}>
             <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
-              <TextInput label="Your name" placeholder="Your name" />
-              <TextInput label="Your email" placeholder="youremail@example.com" required />
+              <TextInput label="Your name" placeholder="Your name" {...form.getInputProps('name')} />
+              <TextInput label="Your email" placeholder="youremail@example.com" required {...form.getInputProps('email')} />
             </SimpleGrid>
 
-            <TextInput mt="md" label="Subject" placeholder="Subject" required />
+            <TextInput mt="md" label="Subject" placeholder="Subject" required {...form.getInputProps('subject')} />
 
             <Textarea
               mt="md"
               label="Your message"
               placeholder="Please include all relevant information"
               minRows={3}
+              {...form.getInputProps('message')}
             />
             <Space h='lg' />
             <Center>
-              <Button 
+              <Button
                 type="submit"
                 variant="gradient"
                 gradient={{ from: 'pink', to: 'yellow' }}

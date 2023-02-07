@@ -15,6 +15,7 @@
     "@mantine/ds": "^5.10.2",
     "@mantine/form": "^5.10.3",
     "@mantine/hooks": "^5.10.2",
+    "@mantine/notifications": "^5.10.3",
     "aos": "^2.3.4",
     "embla-carousel-react": "^7.0.9",
     "react": "^18.2.0",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@types/aos": "^3.0.4",
+    "@types/node": "^18.13.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
