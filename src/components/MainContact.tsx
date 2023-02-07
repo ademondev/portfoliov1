@@ -163,7 +163,7 @@ const MainContact: FC = () => {
       console.error(error);
     }
   }
-
+  
   return (
     <Container data-aos="fade-up" className={classes.outerFormContainer} ref={ref?.contact.targetRef}>
       <Container className={classes.headers}>
@@ -184,7 +184,7 @@ const MainContact: FC = () => {
       <Space h='lg' />
       <Space h='sm' />
       <Container className={classes.formContainer}>
-        <form className={classes.form} onSubmit={form.onSubmit((values) => handleSubmit(values))}>
+        <form className={classes.form} onSubmit={form.onSubmit((values) => {handleSubmit(values); form.setValues({ name: '', email: '', subject: '', message: ''}) })}>
           <div className={classes.fields}>
             <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
               <TextInput label="Your name" placeholder="Your name" {...form.getInputProps('name')} />
