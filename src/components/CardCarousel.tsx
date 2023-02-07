@@ -68,19 +68,19 @@ const Card: FC<CardProps> = ({ image, title, techNames }: CardProps) => {
 const data = [
   {
     image:
-      '/src/assets/app1.png',
+      'https://i.imgur.com/tXCXFCi.png',
     title: 'ERP: A desktop app to set your Discord Rich Presence',
     techNames: ['Electron', 'JavaScript', 'NodeJS', 'CSS', 'HTML'],
   },
   {
     image:
-      '/src/assets/app2crop.jpg',
+      'https://i.imgur.com/ODtX3dP.jpg',
     title: 'TODO Simple v2: A simple, modern task app',
     techNames: ['React', 'TypeScript', 'Vite', 'Mantine'],
   },
   {
     image:
-      '/src/assets/app4.jpg',
+      'https://i.imgur.com/G3aJYnI.jpg',
     title: 'Nare: A Discord bot for roleplayers',
     techNames: ['DiscordJS', 'TypeScript', 'NodeJS'],
   },
