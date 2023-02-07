@@ -84,12 +84,6 @@ const data = [
     title: 'Nare: A Discord bot for roleplayers',
     techNames: ['DiscordJS', 'TypeScript', 'NodeJS'],
   },
-  {
-    image:
-      './src/assets/app3crop.jpg',
-    title: 'TODO Simple v2: A simple, minimal task app',
-    techNames: ['React', 'TypeScript', 'Vite', 'CSS'],
-  },
 ];
 
 
