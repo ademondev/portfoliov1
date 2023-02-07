@@ -1,6 +1,7 @@
 import { createStyles, Center, Container, Divider, Text, Title, Space, List, ThemeIcon, Flex } from "@mantine/core";
 import { FC } from "react";
 import { GiPlayButton } from 'react-icons/gi';
+import { useRefContext } from "./RefProvider";
 
 const useStyles = createStyles((theme) => ({
     headers: {
@@ -59,13 +60,14 @@ const useStyles = createStyles((theme) => ({
 
 const MainAbout: FC = () => {
     const { classes } = useStyles();
+    const ref = useRefContext();
 
     return (<>
         <Space h='xl' />
-        <Container data-aos="fade-right" className={classes.aboutContainer} id="about">
+        <Container data-aos="fade-right" className={classes.aboutContainer} ref={ref?.about.targetRef}>
             <Container className={classes.headers}>
                 <Center>
-                    <Title className={classes.aboutHeader}>
+                    <Title className={classes.aboutHeader} id="about">
                         About me
                     </Title>
                 </Center>

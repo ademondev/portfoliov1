@@ -13,7 +13,7 @@ const useStyles = createStyles((theme) => ({
 const MainLogo = (props: React.SVGProps<SVGSVGElement>) => {
   const { classes } = useStyles();
   return (
-    (
+    (<a href="#">
       <svg
         width={516.316}
         height={112.173}
@@ -92,6 +92,7 @@ const MainLogo = (props: React.SVGProps<SVGSVGElement>) => {
           </tspan>
         </text>
       </svg>
+    </a>
     )
   )
 }

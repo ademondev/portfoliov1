@@ -3,6 +3,7 @@ import { createStyles, Header, Container, Group, Burger, Paper, Transition } fro
 import { useDisclosure } from '@mantine/hooks';
 import { MantineLogo } from '@mantine/ds';
 import MainLogo from './MainLogo';
+import { useRefContext } from './RefProvider';
 
 const HEADER_HEIGHT = 60;
 
@@ -82,22 +83,51 @@ const MainHeader: FC<HeaderResponsiveProps> = ({ links }: HeaderResponsiveProps)
     const [opened, { toggle, close }] = useDisclosure(false);
     const [active, setActive] = useState(links[0].link);
     const { classes, cx } = useStyles();
-    
-    const items = links.map((link) => (
+    const refs = useRefContext();
+
+
+    const items = (<>
         <a
-            key={link.label}
-            href={link.link}
-            className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+            key={links[0].label}
+            href={links[0].link}
+            className={cx(classes.link, { [classes.linkActive]: active === links[0].link })}
             onClick={(event) => {
                 event.preventDefault();
-                setActive(link.link);
+                setActive(links[0].link);
+                refs?.home.scrollIntoView();
                 close();
             }}
         >
-            {link.label}
+            {links[0].label}
         </a>
-    ));
-    
+        <a
+            key={links[1].label}
+            href={links[1].link}
+            className={cx(classes.link, { [classes.linkActive]: active === links[1].link })}
+            onClick={(event) => {
+                event.preventDefault();
+                setActive(links[1].link);
+                refs?.about.scrollIntoView();
+                close();
+            }}
+        >
+            {links[1].label}
+        </a>
+        <a
+            key={links[2].label}
+            href={links[2].link}
+            className={cx(classes.link, { [classes.linkActive]: active === links[2].link })}
+            onClick={(event) => {
+                event.preventDefault();
+                setActive(links[2].link);
+                refs?.contact.scrollIntoView({ alignment: 'center' });
+                close();
+            }}
+        >
+            {links[2].label}
+        </a>
+    </>);
+
     return (
         <Header height={HEADER_HEIGHT} mb={50} className={classes.root}>
             <Container className={classes.header}>
@@ -105,9 +135,9 @@ const MainHeader: FC<HeaderResponsiveProps> = ({ links }: HeaderResponsiveProps)
                 <Group spacing={5} className={classes.links}>
                     {items}
                 </Group>
-    
+
                 <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
-    
+
                 <Transition transition="pop-top-right" duration={200} mounted={opened}>
                     {(styles) => (
                         <Paper className={classes.dropdown} withBorder style={styles}>

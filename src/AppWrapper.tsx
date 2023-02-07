@@ -2,6 +2,8 @@ import { MantineProvider } from '@mantine/core';
 import { FC, useEffect, useState } from 'react'
 import App from './App';
 import LoadingScreen from './components/LoadingScreen';
+import { NotificationsProvider } from '@mantine/notifications';
+
 
 const AppWrapper: FC = () => {
   const [loading, setLoading] = useState(false);
@@ -15,12 +17,13 @@ const AppWrapper: FC = () => {
 
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS>
-
-      {loading ? 
-        <LoadingScreen /> 
-        : 
-        <App />
-      }
+      <NotificationsProvider>
+        {loading ? 
+          <LoadingScreen /> 
+          : 
+          <App />
+        }
+      </NotificationsProvider>
     </MantineProvider>
   );
 }

@@ -1,5 +1,6 @@
 import { createStyles, Container, Title, Text, Button, Space } from '@mantine/core';
 import { FC } from 'react';
+import { useRefContext } from './RefProvider';
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -91,9 +92,10 @@ const useStyles = createStyles((theme) => ({
 
 const MainHero: FC = () => {
     const { classes } = useStyles();
+    const ref = useRefContext();
     return (
       <div className={classes.root}>
-        <Container data-aos="fade-in" size="lg">
+        <Container data-aos="fade-in" size="lg" ref={ref?.home.targetRef}>
           <div className={classes.inner}>
             <div className={classes.content}>
               <Title
@@ -130,6 +132,7 @@ const MainHero: FC = () => {
                 size="xl"
                 className={classes.control}
                 mt={40}
+                onClick={() => ref?.contact.scrollIntoView()}
               >
                 Contact me!
               </Button>

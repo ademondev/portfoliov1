@@ -7,6 +7,7 @@ import MainHero from "./components/MainHero";
 import MainProjects from "./components/MainProjects";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import RefProvider from "./components/RefProvider";
 
 const headerLinks = [
     {
@@ -29,14 +30,16 @@ const App: FC = () => {
         Aos.init({ duration: 1000 });
     }, [])
     return (<>
-        <MainHeader
-            links={headerLinks}
-        />
-        <MainHero />
-        <MainAbout />
-        <MainProjects />
-        <MainContact />
-        <MainFooter />
+        <RefProvider>
+            <MainHeader
+                links={headerLinks}
+            />
+            <MainHero />
+            <MainAbout />
+            <MainProjects />
+            <MainContact />
+            <MainFooter />
+        </RefProvider>
     </>);
 }
 
