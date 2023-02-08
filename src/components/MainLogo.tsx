@@ -6,7 +6,8 @@ const useStyles = createStyles((theme) => ({
     transition: 'all 0.2s ease-in-out',
     '&:hover': {
       filter: "drop-shadow(0 0 0.5em #006daa)"
-    }
+    },
+    fontWeight: 900
   }
 }));
 
@@ -58,7 +59,7 @@ const MainLogo = (props: React.SVGProps<SVGSVGElement>) => {
           style={{
             fontSize: "19.2722px",
             lineHeight: 1.25,
-            fontFamily: "'Swis721 Blk BT'",
+            fontFamily: "'swis721-blk-bt-black', sans-serif",
             fill: "#333",
             fillOpacity: 1,
             strokeWidth: 0.481808,
