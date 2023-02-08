@@ -1,7 +1,11 @@
 import { Carousel } from '@mantine/carousel';
 import { useMediaQuery } from '@mantine/hooks';
-import { createStyles, Paper, Text, Title, Button, useMantineTheme, Badge } from '@mantine/core';
+import { createStyles, Paper, Text, Title, Button, useMantineTheme, Badge, Center } from '@mantine/core';
 import { FC, ReactNode } from 'react';
+import { AiFillGithub } from 'react-icons/ai';
+import { SiDiscord } from 'react-icons/si';
+
+
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -35,11 +39,14 @@ interface CardProps {
   image: string;
   title: string;
   techNames: string[];
+  githubLink?: string;
+  discordLink?: string;
 }
 
-const Card: FC<CardProps> = ({ image, title, techNames }: CardProps) => {
+const Card: FC<CardProps> = ({ image, title, techNames, githubLink, discordLink }: CardProps) => {
   const { classes } = useStyles();
-
+  const gitLinkLength = githubLink?.length ? githubLink?.length : 0
+  const discordLinkLength = discordLink?.length ? discordLink?.length : 0
   return (
     <Paper
       shadow="md"
@@ -49,7 +56,7 @@ const Card: FC<CardProps> = ({ image, title, techNames }: CardProps) => {
       className={classes.card}
     >
       <div>
-        <Text className={classes.category} size="xs">
+        <Text className={classes.category} size="xs" key={`child_${title}`}>
           {techNames.map((name) => 
             <Badge>{name}</Badge>
           )}
@@ -58,31 +65,43 @@ const Card: FC<CardProps> = ({ image, title, techNames }: CardProps) => {
           {title}
         </Title>
       </div>
-      <Button variant="white" color="dark">
-        Read article
-      </Button>
+      <Center style={{ backgroundColor: 'white', borderRadius: 5 }}>
+        {gitLinkLength > 0 ? 
+          <Button component='a' style={{ backgroundColor: 'white', color: 'black'}} href={githubLink} leftIcon={<AiFillGithub fontSize={20} color='black'/>}>Github</Button>
+          :
+          null
+        }
+        {discordLinkLength > 0 ?
+          <Button component='a' href={discordLink} style={{ backgroundColor: 'white', color: 'black'}} leftIcon={<SiDiscord fontSize={20} color='black'/>}>Discord</Button>
+          :
+          null
+        }
+      </Center>
     </Paper>
   );
 }
 
-const data = [
+const data: CardProps[] = [
   {
     image:
       'https://i.imgur.com/tXCXFCi.png',
     title: 'ERP: A desktop app to set your Discord Rich Presence',
     techNames: ['Electron', 'JavaScript', 'NodeJS', 'CSS', 'HTML'],
+    githubLink: 'https://github.com/ademondev/ERP'
   },
   {
     image:
       'https://i.imgur.com/ODtX3dP.jpg',
     title: 'TODO Simple v2: A simple, modern task app',
     techNames: ['React', 'TypeScript', 'Vite', 'Mantine'],
+    githubLink: 'https://github.com/ademondev/todo-app-react-mantine'
   },
   {
     image:
       'https://i.imgur.com/G3aJYnI.jpg',
     title: 'Nare: A Discord bot for roleplayers',
     techNames: ['DiscordJS', 'TypeScript', 'NodeJS'],
+    discordLink: 'https://discord.gg/vVxbDdjVXy'
   },
 ];
 
