@@ -92,6 +92,13 @@ const data: CardProps[] = [
     theme: 'dark'
   },
   {
+    image: 'https://drive.google.com/uc?id=1wVeVfPe6yIIAPJEEC9Mkj9kSbMv9vAlz',
+    title: 'RecipeAI: A recipe generator using AI',
+    techNames: ['React', 'TypeScript', 'OpenAI', 'NodeJS', 'Mantine'],
+    githubLink: 'https://github.com/ademondev/recipeai',
+    theme: 'dark'
+  },
+  {
     image:
       'https://i.imgur.com/tXCXFCi.png',
     title: 'ERP: A desktop app to set your Discord Rich Presence',
