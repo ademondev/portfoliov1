@@ -29,11 +29,12 @@ const useStyles = createStyles((theme) => ({
 
   category: {
     color: theme.white,
-    opacity: 0.7,
     fontWeight: 700,
     textTransform: 'uppercase',
   },
 }));
+
+type Theme = 'light' | 'dark';
 
 interface CardProps {
   image: string;
@@ -41,9 +42,10 @@ interface CardProps {
   techNames: string[];
   githubLink?: string;
   discordLink?: string;
+  theme?: Theme;
 }
 
-const Card: FC<CardProps> = ({ image, title, techNames, githubLink, discordLink }: CardProps) => {
+const Card: FC<CardProps> = ({ image, title, techNames, githubLink, discordLink, theme }: CardProps) => {
   const { classes } = useStyles();
   const gitLinkLength = githubLink?.length ? githubLink?.length : 0
   const discordLinkLength = discordLink?.length ? discordLink?.length : 0
@@ -58,16 +60,16 @@ const Card: FC<CardProps> = ({ image, title, techNames, githubLink, discordLink 
       <div>
         <Text className={classes.category} size="xs" key={`child_${title}`}>
           {techNames.map((name) => 
-            <Badge>{name}</Badge>
+            <Badge color={theme === 'dark' ? 'dark' : undefined } variant="filled">{name}</Badge>
           )}
         </Text>
-        <Title order={3} className={classes.title}>
+        <Title order={3} style={{ color: `${theme === 'dark' ? '#2c2f33' : undefined }`}} className={classes.title}>
           {title}
         </Title>
       </div>
       <Center style={{ backgroundColor: 'white', borderRadius: 5 }}>
         {gitLinkLength > 0 ? 
-          <Button component='a' style={{ backgroundColor: 'white', color: 'black'}} href={githubLink} leftIcon={<AiFillGithub fontSize={20} color='black'/>}>Github</Button>
+          <Button component='a' style={{ backgroundColor: `${theme === 'dark' ? '#2c2f33' : 'white'}`, color: `${theme === 'dark' ? 'white' : 'black'}`}} href={githubLink} leftIcon={<AiFillGithub fontSize={20} color={`${theme === 'dark' ? 'white' : 'black'}`}/>}>Github</Button>
           :
           null
         }
@@ -82,6 +84,13 @@ const Card: FC<CardProps> = ({ image, title, techNames, githubLink, discordLink 
 }
 
 const data: CardProps[] = [
+  {
+    image: 'https://drive.google.com/uc?id=12PIbmCUdXpvW8BQHobqLAh-a2DlNMcqI',
+    title: 'Discord clone using TailwindCSS',
+    techNames: ['React', 'TypeScript', 'TailwindCSS'],
+    githubLink: 'https://github.com/ademondev/discord-landing-clone-tailwind',
+    theme: 'dark'
+  },
   {
     image:
       'https://i.imgur.com/tXCXFCi.png',
